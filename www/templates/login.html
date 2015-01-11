@@ -1,0 +1,28 @@
+<ion-view view-title="Login">
+    <ion-content class="padding">
+        <div class="list">
+            <img src="../img/logo1.png" class="logo">
+            <div class="logoText">
+                myChat
+            </div>
+        </div>
+        <div class="list card padding">
+            <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input type="text">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password">
+            </label>
+            <button ng-click="signIn()" class="button button-block button-positive activated">
+                Sign In
+            </button>
+        </div>
+        <div class="list" style="text-align:center">
+            <button ng-click="modal.show()" class="button button-small button-outline icon-left ion-person-add button-positive">
+                Create New Account
+            </button>
+        </div>
+    </ion-content>
+</ion-view>
