@@ -4,7 +4,7 @@
 // 'mychat.controllers' is found in controllers.js
 angular.module('mychat', ['ionic', 'mychat.controllers', 'mychat.services'])
 
-.run(function ($ionicPlatform) {
+.run(function ($ionicPlatform, $rootScope) {
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -14,6 +14,10 @@ angular.module('mychat', ['ionic', 'mychat.controllers', 'mychat.services'])
         if (window.StatusBar) {
             // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
+        }
+
+        $rootScope.logout = function () {
+            console.log("Logging out from the app");
         }
     });
 })
@@ -46,7 +50,7 @@ angular.module('mychat', ['ionic', 'mychat.controllers', 'mychat.services'])
     .state('tab.rooms', {
         url: '/rooms',
         views: {
-            'tab-friends': {
+            'tab-rooms': {
                 templateUrl: 'templates/tab-rooms.html',
                 controller: 'RoomsCtrl'
             }
@@ -54,9 +58,9 @@ angular.module('mychat', ['ionic', 'mychat.controllers', 'mychat.services'])
     })
 
     .state('tab.chat', {
-        url: '/chat/:room',
+        url: '/chat',
         views: {
-            'tab-chats': {
+            'tab-chat': {
                 templateUrl: 'templates/tab-chat.html',
                 controller: 'ChatCtrl'
             }

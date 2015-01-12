@@ -18,12 +18,13 @@ angular.module('mychat.controllers', [])
     }
 })
 
-.controller('ChatCtrl', function ($scope) {
+.controller('ChatCtrl', function ($scope, Chats) {
     console.log("Chat Controller initialized");
+    $scope.chats = Chats.all();
 })
 
 
-.controller('RoomsCtrl', function ($scope, Friends) {
+.controller('RoomsCtrl', function ($scope, Rooms) {
     console.log("Rooms Controller initialized");
-    $scope.friends = Friends.all();
+    $scope.rooms = Rooms.all();
 });

@@ -1,9 +1,9 @@
 <ion-view view-title="Rooms">
     <ion-content>
         <ion-list>
-            <ion-item class="item-avatar" ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/friend/{{friend.id}}">
-                <img ng-src="{{friend.face}}">
-                <h2>{{friend.name}}</h2>
+            <ion-item class="item-icon-left" ng-repeat="room in rooms" type="item-text-wrap" ui-sref="tab.chat">
+                <i class="icon {{room.icon}}"></i>
+                <h2>{{room.name}}</h2>
             </ion-item>
         </ion-list>
     </ion-content>
