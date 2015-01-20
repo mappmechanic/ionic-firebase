@@ -1,7 +1,7 @@
 <ion-view view-title="Login">
     <ion-content class="padding">
         <div class="list">
-            <img src="../img/logo1.png" class="logo">
+            <img src="img/logo1.png" class="logo">
             <div class="logoText">
                 myChat
             </div>
@@ -9,13 +9,13 @@
         <div class="list card padding">
             <label class="item item-input">
                 <span class="input-label">Email</span>
-                <input type="text">
+                <input type="text" ng-model="user.email">
             </label>
             <label class="item item-input">
                 <span class="input-label">Password</span>
-                <input type="password">
+                <input type="password" ng-model="user.pwdForLogin">
             </label>
-            <button ng-click="signIn()" class="button button-block button-positive activated">
+            <button ng-click="signIn(user)" class="button button-block button-positive activated">
                 Sign In
             </button>
         </div>

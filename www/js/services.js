@@ -1,35 +1,16 @@
-angular.module('mychat.services', [])
+angular.module('mychat.services', ['firebase'])
+    .factory("Auth", ["$firebaseAuth", "$rootScope",
+    function ($firebaseAuth, $rootScope) {
+            var ref = new Firebase(firebaseUrl);
+            return $firebaseAuth(ref);
+}])
 
-.factory('Chats', function () {
+.factory('Chats', function ($firebase, Rooms) {
     // Might use a resource here that returns a JSON array
-
-    // Some fake testing data
-    var chats = [{
-        id: 0,
-        name: 'Ben Sparrow',
-        lastText: 'You on your way?',
-        time: '05/01/2015 04:05 PM'
-  }, {
-        id: 1,
-        name: 'Max Lynx',
-        lastText: 'Hey, it\'s me',
-        time: '06/01/2015 01:22 AM'
-  }, {
-        id: 2,
-        name: 'Andrew Jostlin',
-        lastText: 'Did you get the ice cream?',
-        time: '15 hours ago'
-  }, {
-        id: 3,
-        name: 'Adam Bradleyson',
-        lastText: 'I should buy a boat',
-        time: '55 mins ago'
-  }, {
-        id: 4,
-        name: 'Perry Governor',
-        lastText: 'Look at my mukluks!',
-        time: '2 mins ago'
-  }];
+    var selectedRoomId;
+    // Might use a resource here that returns a JSON array
+    var ref = new Firebase(firebaseUrl);
+    var chats;
 
     return {
         all: function () {
@@ -45,48 +26,50 @@ angular.module('mychat.services', [])
                 }
             }
             return null;
+        },
+        getSelectedRoomName: function () {
+            var selectedRoom;
+            if (selectedRoomId && selectedRoomId != null) {
+                selectedRoom = Rooms.get(selectedRoomId);
+                if (selectedRoom)
+                    return selectedRoom.name;
+                else
+                    return null;
+            } else
+                return null;
+        },
+        selectRoom: function (roomId) {
+            console.log("selecting the room with id: " + roomId);
+            selectedRoomId = roomId;
+            if (!isNaN(roomId)) {
+                chats = $firebase(ref.child('rooms').child(selectedRoomId).child('chats')).$asArray();
+
+                chats.$loaded().then(function (data) {
+                    console.log(JSON.stringify(data));
+                    console.log("chats data has arrived");
+                });
+            }
+        },
+        send: function (from, message) {
+            if (from && message) {
+                var chatMessage = {
+                    from: from,
+                    message: message,
+                    createdAt: Firebase.ServerValue.TIMESTAMP
+                };
+                chats.$add(chatMessage);
+            }
         }
     }
 })
 
 /**
- * A simple example service that returns some data.
+ * Simple Service which returns Rooms collection as Array from Salesforce & binds to the Scope in Controller
  */
-.factory('Rooms', function () {
+.factory('Rooms', function ($firebase) {
     // Might use a resource here that returns a JSON array
-
-    // Some fake testing data
-    var rooms = [{
-            id: 0,
-            name: 'Academics',
-            notes: 'Discuss about education, colleges & degrees',
-            icon: 'ion-university'
-                },
-        {
-            id: 1,
-            name: 'Photography',
-            notes: 'Discuss about photography, cameras, picture modes',
-            icon: 'ion-camera'
-                },
-        {
-            id: 2,
-            name: 'Music',
-            notes: 'Talk to fellow music lovers about latest songs & albums',
-            icon: 'ion-music-note'
-                },
-        {
-            id: 3,
-            name: 'Fashion',
-            notes: 'Talk about latest fashion, clothes & accessories',
-            icon: 'ion-woman'
-        },
-        {
-            id: 4,
-            name: 'Travel',
-            notes: 'Discuss about holidays, vacations & travel deals',
-            icon: 'ion-plane'
-                }
-                ];
+    var ref = new Firebase(firebaseUrl);
+    var rooms = $firebase(ref.child('rooms')).$asArray();
 
     return {
         all: function () {
@@ -94,7 +77,7 @@ angular.module('mychat.services', [])
         },
         get: function (roomId) {
             // Simple index lookup
-            return rooms[roomId];
+            return rooms.$getRecord(roomId);
         }
     }
 });
