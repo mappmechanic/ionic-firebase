@@ -69,6 +69,9 @@ angular.module('mychat.controllers', [])
 
 .controller('ChatCtrl', function ($scope, Chats, $state) {
     console.log("Chat Controller initialized");
+    $scope.IM = {
+        textMessage: ""
+    };
     Chats.selectRoom($state.params.roomId);
     var roomName = Chats.getSelectedRoomName();
     console.log(roomName);
@@ -76,10 +79,11 @@ angular.module('mychat.controllers', [])
         $scope.roomName = " - " + roomName;
         $scope.chats = Chats.all();
     }
-    $scope.sendMessage = function () {
-        console.log($scope.textMessage);
-        Chats.send($scope.displayName, $scope.textMessage);
-        $scope.message = "";
+
+    $scope.sendMessage = function (msg) {
+        console.log(msg);
+        Chats.send($scope.displayName, msg);
+        $scope.IM.textMessage = "";
     }
 })
 

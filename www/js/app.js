@@ -4,7 +4,7 @@ var firebaseUrl = "https://sizzling-inferno-3944.firebaseio.com";
 
 // 'mychat.services' is found in services.js
 // 'mychat.controllers' is found in controllers.js
-angular.module('mychat', ['ionic', 'firebase', 'mychat.controllers', 'mychat.services'])
+angular.module('mychat', ['ionic', 'firebase', 'angularMoment', 'mychat.controllers', 'mychat.services'])
 
 .run(function ($ionicPlatform, $rootScope, $location, Auth, $ionicLoading) {
     $ionicPlatform.ready(function () {

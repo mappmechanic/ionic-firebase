@@ -6,9 +6,9 @@ angular.module('mychat.services', ['firebase'])
 }])
 
 .factory('Chats', function ($firebase, Rooms) {
-    // Might use a resource here that returns a JSON array
+
     var selectedRoomId;
-    // Might use a resource here that returns a JSON array
+
     var ref = new Firebase(firebaseUrl);
     var chats;
 
@@ -43,21 +43,19 @@ angular.module('mychat.services', ['firebase'])
             selectedRoomId = roomId;
             if (!isNaN(roomId)) {
                 chats = $firebase(ref.child('rooms').child(selectedRoomId).child('chats')).$asArray();
-
-                chats.$loaded().then(function (data) {
-                    console.log(JSON.stringify(data));
-                    console.log("chats data has arrived");
-                });
             }
         },
         send: function (from, message) {
+            console.log("sending message from :" + from.displayName + " & message is " + message);
             if (from && message) {
                 var chatMessage = {
-                    from: from,
+                    from: from.displayName,
                     message: message,
                     createdAt: Firebase.ServerValue.TIMESTAMP
                 };
-                chats.$add(chatMessage);
+                chats.$add(chatMessage).then(function (data) {
+                    console.log("message added");
+                });
             }
         }
     }

@@ -1,0 +1,58 @@
+{
+  "name": "angular-moment",
+  "version": "0.9.0",
+  "main": "angular-moment.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/urish/angular-moment.git"
+  },
+  "dependencies": {
+    "moment": ">=2.8.0 <2.10.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "load-grunt-tasks": "0.6.0",
+    "grunt-contrib-uglify": "0.5.1",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-karma": "~0.8.2",
+    "karma": "~0.12.0",
+    "karma-coverage": "~0.2.0",
+    "karma-jasmine": "~0.2.1",
+    "karma-phantomjs-launcher": "~0.1.1",
+    "coveralls": "~2.11.0",
+    "grunt-ngdocs": "^0.2.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "gitHead": "bf7da2a9e286fbf5f0561d784fd6b4e2798cfc98",
+  "description": "angular-moment ==============",
+  "bugs": {
+    "url": "https://github.com/urish/angular-moment/issues"
+  },
+  "homepage": "https://github.com/urish/angular-moment",
+  "_id": "angular-moment@0.9.0",
+  "_shasum": "12c0bb767779844375b4523640f167dbb603a1e1",
+  "_from": "angular-moment@",
+  "_npmVersion": "1.4.28",
+  "_npmUser": {
+    "name": "urish",
+    "email": "uri@urish.org"
+  },
+  "maintainers": [
+    {
+      "name": "urish",
+      "email": "uri@urish.org"
+    }
+  ],
+  "dist": {
+    "shasum": "12c0bb767779844375b4523640f167dbb603a1e1",
+    "tarball": "http://registry.npmjs.org/angular-moment/-/angular-moment-0.9.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/angular-moment/-/angular-moment-0.9.0.tgz",
+  "readme": "ERROR: No README data found!"
+}
