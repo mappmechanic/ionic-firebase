@@ -85,6 +85,10 @@ angular.module('mychat.controllers', [])
         Chats.send($scope.displayName, msg);
         $scope.IM.textMessage = "";
     }
+
+    $scope.remove = function (chat) {
+        Chats.remove(chat);
+    }
 })
 
 
