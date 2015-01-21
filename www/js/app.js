@@ -2,6 +2,13 @@
 
 var firebaseUrl = "https://sizzling-inferno-3944.firebaseio.com";
 
+function onDeviceReady() {
+    angular.bootstrap(document, ["mychat"]);
+}
+//console.log("binding device ready");
+// Registering onDeviceReady callback with deviceready event
+document.addEventListener("deviceready", onDeviceReady, false);
+
 // 'mychat.services' is found in services.js
 // 'mychat.controllers' is found in controllers.js
 angular.module('mychat', ['ionic', 'firebase', 'angularMoment', 'mychat.controllers', 'mychat.services'])
