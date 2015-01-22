@@ -69,12 +69,16 @@ angular.module('mychat.controllers', [])
 
 .controller('ChatCtrl', function ($scope, Chats, $state) {
     console.log("Chat Controller initialized");
+
     $scope.IM = {
         textMessage: ""
     };
+
     Chats.selectRoom($state.params.roomId);
+
     var roomName = Chats.getSelectedRoomName();
-    console.log(roomName);
+
+    // Fetching Chat Records only if a Room is Selected
     if (roomName) {
         $scope.roomName = " - " + roomName;
         $scope.chats = Chats.all();
@@ -90,7 +94,6 @@ angular.module('mychat.controllers', [])
         Chats.remove(chat);
     }
 })
-
 
 .controller('RoomsCtrl', function ($scope, Rooms, Chats, $state) {
     console.log("Rooms Controller initialized");
