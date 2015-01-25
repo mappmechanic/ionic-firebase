@@ -24,6 +24,8 @@ angular.module('mychat', ['ionic', 'firebase', 'angularMoment', 'mychat.controll
             // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
         }
+        // To Resolve Bug
+        ionic.Platform.fullScreen();
 
         $rootScope.firebaseUrl = firebaseUrl;
         $rootScope.displayName = null;
