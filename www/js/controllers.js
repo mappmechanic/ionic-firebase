@@ -1,7 +1,7 @@
 angular.module('mychat.controllers', [])
 
 .controller('LoginCtrl', function ($scope, $ionicModal, $state, $firebaseAuth, $ionicLoading, $rootScope) {
-    console.log('Login Controller Initialized');
+    //console.log('Login Controller Initialized');
 
     var ref = new Firebase($scope.firebaseUrl);
     var auth = $firebaseAuth(ref);
@@ -68,7 +68,7 @@ angular.module('mychat.controllers', [])
 })
 
 .controller('ChatCtrl', function ($scope, Chats, $state) {
-    console.log("Chat Controller initialized");
+    //console.log("Chat Controller initialized");
 
     $scope.IM = {
         textMessage: ""
@@ -96,7 +96,7 @@ angular.module('mychat.controllers', [])
 })
 
 .controller('RoomsCtrl', function ($scope, Rooms, Chats, $state) {
-    console.log("Rooms Controller initialized");
+    //console.log("Rooms Controller initialized");
     $scope.rooms = Rooms.all();
 
     $scope.openChatRoom = function (roomId) {
