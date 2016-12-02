@@ -2,6 +2,14 @@
   "name": "ionic-firebase",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.0.0-beta.14"
+    "ionic": "driftyco/ionic-bower#1.0.0"
+  },
+  "dependencies": {
+    "firebase": "2.4.2",
+    "angularfire": "0.9.1",
+    "angular-moment": "0.9.0"
+  },
+  "resolutions": {
+    "firebase": "2.4.2"
   }
 }

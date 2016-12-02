@@ -119,6 +119,9 @@
   &::-webkit-slider-thumb:before {
     background: $track-bg-color;
   }
+  &::-ms-fill-lower{
+    background: $track-bg-color;
+  }
 }
 
 
@@ -147,6 +150,15 @@
   // the track when the toggle is "on"
   & input:checked + .track {
     border-color: $on-border-color;
+    background-color: $on-bg-color;
+  }
+}
+@mixin toggle-small-style($on-bg-color) {
+  // the track when the toggle is "on"
+  & input:checked + .track {
+    background-color: rgba($on-bg-color, .5);
+  }
+  & input:checked + .track .handle {
     background-color: $on-bg-color;
   }
 }

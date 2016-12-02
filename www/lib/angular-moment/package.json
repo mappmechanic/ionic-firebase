@@ -27,32 +27,5 @@
   },
   "scripts": {
     "test": "grunt test"
-  },
-  "gitHead": "bf7da2a9e286fbf5f0561d784fd6b4e2798cfc98",
-  "description": "angular-moment ==============",
-  "bugs": {
-    "url": "https://github.com/urish/angular-moment/issues"
-  },
-  "homepage": "https://github.com/urish/angular-moment",
-  "_id": "angular-moment@0.9.0",
-  "_shasum": "12c0bb767779844375b4523640f167dbb603a1e1",
-  "_from": "angular-moment@",
-  "_npmVersion": "1.4.28",
-  "_npmUser": {
-    "name": "urish",
-    "email": "uri@urish.org"
-  },
-  "maintainers": [
-    {
-      "name": "urish",
-      "email": "uri@urish.org"
-    }
-  ],
-  "dist": {
-    "shasum": "12c0bb767779844375b4523640f167dbb603a1e1",
-    "tarball": "http://registry.npmjs.org/angular-moment/-/angular-moment-0.9.0.tgz"
-  },
-  "directories": {},
-  "_resolved": "https://registry.npmjs.org/angular-moment/-/angular-moment-0.9.0.tgz",
-  "readme": "ERROR: No README data found!"
+  }
 }
