@@ -5,10 +5,8 @@ It uses the AngularFire library to connect to firebase.
 
 Steps:
 
+clone this repo
 ```bash
-git clone https://github.com/agemarks/ionic-firebase.git
 cd ./ionic-firebase
 npm start
 ```
-now point your browser to http://localhost:8000
-if you want to change the web port, make changes in package.json
