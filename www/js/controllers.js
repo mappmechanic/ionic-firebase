@@ -65,6 +65,18 @@ angular.module('mychat.controllers', [])
         } else
             alert("Please enter email and password both");
     }
+    
+    $scope.reSet = function (user) {
+        if (user.email) {
+            auth.$sendPasswordResetEmail(user.email).then(function() {
+                console.log("reset email sent");
+                alert("reset email sent");
+            }).catch(function(error) {
+                alert("reset email failed:" + error.message);
+            });
+        } else
+            alert("Please enter email");
+    }
 })
 
 .controller('ChatCtrl', function ($scope, Chats, $state) {

@@ -6,3 +6,6 @@ platforms/
 plugins/
 ionic.project
 .io-config.json
+/www/css/ionic.app.css
+/www/css/ionic.app.min.css
+/www/lib/
