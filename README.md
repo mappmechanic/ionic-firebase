@@ -7,6 +7,6 @@ Steps:
 
 clone this repo
 ```bash
-cd ./ionic-firebase
+cd ./ionic-firebase-master
 npm start
 ```
